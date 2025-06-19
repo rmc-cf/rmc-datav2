@@ -3,6 +3,12 @@
     <RmcDvChart :option="option1" />
     <RmcRingChart :config="config1" />
     <RmcCapsuleChart :config="config1" />
+    <RmcWaterLevel :config="config2" />
+    <RmcWaterLevel :config="config3" />
+    <RmcWaterLevel :config="config4" />
+    <RmcPercentPond/>
+    <RmcFlylineChart/>
+    <RmcConicalColumn/>
   </dv-full-screen-container>
 </template>
 
@@ -10,6 +16,11 @@
 import RmcDvChart from './components/RmcDvChart.vue'
 import RmcRingChart from './components/RmcRingChart.vue'
 import RmcCapsuleChart from './components/RmcCapsuleChart.vue'
+import RmcWaterLevel from './components/RmcWaterLevel.vue'
+import RmcPercentPond from './components/RmcPercentPond.vue'
+import RmcFlylineChart from './components/RmcFlylineChart.vue'
+import RmcConicalColumn from './components/RmcConicalColumn.vue'
+
 const option1 = {
   title: {
     text: '剩余油量表',
@@ -64,18 +75,37 @@ const config1 = {
   unit: '单位',
   showValue: true
 }
+const config2 = {
+  data:[52,24],
+}
+const config3 = {
+  data:[52,24],
+  shape:'roundRect'
+}
+const config4 = {
+  data:[52,24],
+  shape:'round'
+}
 
 export default {
   name: 'App',
   components: {
     RmcDvChart,
     RmcRingChart,
-    RmcCapsuleChart
+    RmcCapsuleChart,
+    RmcWaterLevel,
+    RmcPercentPond,
+    RmcFlylineChart,
+    RmcConicalColumn
+
   },
   data() {
     return {
       option1,
       config1,
+      config2,
+      config3,
+      config4,
     }
   },
 }
@@ -85,6 +115,9 @@ export default {
 #dv-full-screen-container{
   background-color: #000;
   display: flex;
-  padding: 10px;
+  padding: 20px 10px;
+  gap: 20px;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 </style>
